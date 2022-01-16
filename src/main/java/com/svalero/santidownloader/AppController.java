@@ -4,13 +4,18 @@ import com.svalero.santidownloader.util.R;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class AppController {
@@ -19,8 +24,16 @@ public class AppController {
     public Button btDownload;
     public TabPane tpDownloads;
 
-    public AppController() {
+    private Map<String, DownloadController> allDownloads;
 
+    @FXML
+    public File defaultFile = new File("C:/Users/Santi/Downloads"); // Establezco una ruta por defecto
+    public File file = defaultFile; // La asigno a la ruta donde se descargará si no se cambia despues
+
+    private static final Logger logger = LogManager.getLogger(AppController.class);
+
+    public AppController() {
+        allDownloads = new HashMap<>();
     }
 
     @FXML
@@ -43,6 +56,8 @@ public class AppController {
 
             String filename = url.substring(url.lastIndexOf("/") + 1);
             tpDownloads.getTabs().add(new Tab(filename, downloadBox));
+
+            allDownloads.put(url, downloadController);
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -50,9 +65,31 @@ public class AppController {
 
     @FXML
     public void stopAllDownloads() {
+        for (DownloadController downloadController : allDownloads.values())
+            downloadController.stop();
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("Se han finalizado todas las descargas!");
+        alert.show();
+        logger.trace("Todas las descargas detenidas");
     }
 
     @FXML
     public void readDLC() {
+        // Todo dento de un try catch
+        // Hay que pedir el fichero en la interfaz FileChooser
+        /*
+        FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showOpenDialog(tfUrl.getScene().getWindow());
+        if (file == null)
+            return;
+         */
+
+        // Leo el fichero y cargo cada linea en un list
+
+        // Fille.read devuelve una lista de Strings y en cada linea es una linea
+        // con una linea leemos el fichero, con 2 lineas hacemos un foreach que llama al launchDownloader
+
+        // Para cada linea; llamar al método launchDownload
     }
 }

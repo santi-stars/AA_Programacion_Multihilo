@@ -4,10 +4,7 @@ import javafx.concurrent.Worker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
@@ -25,7 +22,7 @@ public class DownloadController implements Initializable {
     public ProgressBar pbProgress;
     private String urlText;
     private DownloadTask downloadTask;
-    private Stage stage;
+    private File file;
 
     private static final Logger logger = LogManager.getLogger(DownloadController.class);
 
@@ -42,16 +39,18 @@ public class DownloadController implements Initializable {
     @FXML
     public void start(ActionEvent event) {
         try {
-            FileChooser fileChooser = new FileChooser();
-            File file = fileChooser.showSaveDialog(tfUrl.getScene().getWindow());
+            FileChooser fileChooser = new FileChooser(); // Ventana donde eliger un archivo de tu disco duro
+            file = fileChooser.showSaveDialog(tfUrl.getScene().getWindow());
             if (file == null)
                 return;
 
             downloadTask = new DownloadTask(urlText, file);
 
+            // Actualiza la barra de progreso
             pbProgress.progressProperty().unbind();
             pbProgress.progressProperty().bind(downloadTask.progressProperty());
 
+            // Está pendiente de la barra de progreso y cuando termina lanza un alert informativo
             downloadTask.stateProperty().addListener((observableValue, oldState, newState) -> {
                 System.out.println(observableValue.toString());
                 if (newState == Worker.State.SUCCEEDED) {
@@ -66,23 +65,26 @@ public class DownloadController implements Initializable {
             new Thread(downloadTask).start();
         } catch (MalformedURLException murle) {
             murle.printStackTrace();
-            logger.error("URL mal formada", murle.fillInStackTrace());
+            logger.error("URL incorrecta", murle.fillInStackTrace());
         }
     }
 
     @FXML
     public void stop(ActionEvent event) {
         logger.trace("Descarga " + urlText + " detenida");
-        downloadTask.cancel();
-
-
+        stop();
     }
 
     public void stop() {
         if (downloadTask != null)
             downloadTask.cancel();
+    }
 
-
+    public void delete() {
+        if (file != null) {
+            logger.info("Eliminado: " + urlText);
+            file.delete();
+        }
     }
 
     public String getUrlText() {

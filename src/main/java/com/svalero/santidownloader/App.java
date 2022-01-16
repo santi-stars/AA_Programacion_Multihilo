@@ -23,6 +23,7 @@ public class App extends Application {
 
         Scene scene = new Scene(vbox);
         stage.setScene(scene);
+        stage.setTitle("Santi Downloader");
         stage.show();
     }
 

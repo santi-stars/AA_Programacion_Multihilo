@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="218.0" prefWidth="364.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="218.0" prefWidth="364.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="lbNombre" prefHeight="17.0" prefWidth="311.0" text="Descarga" />
       <TextField fx:id="tfUrl">
@@ -20,6 +20,7 @@
          <children>
             <Button fx:id="btStart" mnemonicParsing="false" onAction="#start" text="Iniciar" />
             <Button fx:id="btStop" mnemonicParsing="false" onAction="#stop" text="Parar" />
+            <Button fx:id="btDelete" mnemonicParsing="false" onAction="#delete" text="Eliminar" />
          </children>
       </HBox>
       <ProgressBar fx:id="pbProgress" prefHeight="40.0" prefWidth="324.0" progress="0.0" />

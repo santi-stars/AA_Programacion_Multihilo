@@ -13,6 +13,7 @@
          <children>
             <TextField fx:id="tfUrl" />
             <Button fx:id="btDownload" mnemonicParsing="false" onAction="#launchDownload" text="Descargar" />
+            <Button fx:id="btStopAllDownloads" mnemonicParsing="false" onAction="#stopAllDownloads" text="Cancelar todo" />
             <TabPane fx:id="tpDownloads" prefHeight="313.0" prefWidth="578.0" tabClosingPolicy="UNAVAILABLE" />
          </children>
          <padding>
