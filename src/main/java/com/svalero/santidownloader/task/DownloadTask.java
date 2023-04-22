@@ -1,4 +1,4 @@
-package com.svalero.santidownloader;
+package com.svalero.santidownloader.task;
 
 import javafx.concurrent.Task;
 import org.apache.logging.log4j.LogManager;
@@ -7,7 +7,6 @@ import org.apache.logging.log4j.Logger;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -26,6 +25,46 @@ public class DownloadTask extends Task<Integer> {
         this.file = file;
     }
 
+    @Override
+    protected Integer call() throws Exception {
+        logger.trace("Descarga " + url.toString() + " iniciada");
+        updateMessage("Conectando con el servidor . . .");
+
+        URLConnection urlConnection = url.openConnection();
+        double fileSize = urlConnection.getContentLength();
+        BufferedInputStream in = new BufferedInputStream(url.openStream());
+        FileOutputStream fileOutputStream = new FileOutputStream(file);
+        byte[] dataBuffer = new byte[1024];
+        int bytesRead;
+        int totalRead = 0;
+        double downloadProgress = 0;
+
+        while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
+            downloadProgress = ((double) totalRead / fileSize);
+            updateProgress(downloadProgress, 1);
+
+            DecimalFormat df = new DecimalFormat("##.##");
+            df.setRoundingMode(RoundingMode.DOWN);
+
+            updateMessage(totalRead/1000000 + " MB / " + df.format(downloadProgress * 100) + " %");
+
+            fileOutputStream.write(dataBuffer, 0, bytesRead);
+            totalRead += bytesRead;
+
+            if (isCancelled()) {
+                updateMessage("");
+                fileOutputStream.close();
+                return null;
+            }
+        }
+
+        updateProgress(1, 1);
+        updateMessage("100 %");
+        fileOutputStream.close();   // COPIAR?¿?¿?¿
+        logger.trace("Finalizado: " + url.toString());
+        return null;
+    }
+    /*
     @Override
     protected Integer call() throws Exception {
         logger.trace("Descarga " + url.toString() + " iniciada");
@@ -67,4 +106,6 @@ public class DownloadTask extends Task<Integer> {
         logger.trace("Descarga " + url.toString() + " finalizada");
         return null;
     }
+
+     */
 }

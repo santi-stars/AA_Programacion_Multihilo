@@ -1,22 +1,22 @@
-12:55:36.818 [JavaFX Application Thread] INFO  com.svalero.santidownloader.DownloadController - Descarga  creada
-12:55:37.209 [JavaFX Application Thread] INFO  com.svalero.santidownloader.DownloadController - Descarga  creada
-12:55:43.809 [JavaFX Application Thread] TRACE com.svalero.santidownloader.DownloadController - Descarga  detenida
-12:57:18.802 [JavaFX Application Thread] INFO  com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz creada
-12:57:31.883 [Thread-3] TRACE com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz iniciada
-12:57:34.715 [JavaFX Application Thread] TRACE com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz detenida
-12:57:34.717 [Thread-3] TRACE com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz cancelada
-12:57:45.092 [Thread-4] TRACE com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz iniciada
-12:57:46.192 [Thread-4] TRACE com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz finalizada
-12:57:56.573 [Thread-5] TRACE com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz iniciada
-12:57:57.422 [Thread-5] TRACE com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz finalizada
-12:58:09.294 [Thread-6] TRACE com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz iniciada
-12:58:09.922 [JavaFX Application Thread] TRACE com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz detenida
-12:58:09.923 [Thread-6] TRACE com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz cancelada
-12:58:12.256 [JavaFX Application Thread] TRACE com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz detenida
-12:58:13.096 [JavaFX Application Thread] TRACE com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz detenida
-12:58:20.752 [JavaFX Application Thread] TRACE com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz detenida
-13:00:45.396 [JavaFX Application Thread] INFO  com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz creada
-13:00:55.993 [Thread-3] TRACE com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz iniciada
-13:00:58.396 [Thread-3] TRACE com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz finalizada
-13:21:16.570 [JavaFX Application Thread] INFO  com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.16.tar.xz creada
-13:21:21.702 [JavaFX Application Thread] INFO  com.svalero.santidownloader.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.16.tar.xz creada
+12:55:36.818 [JavaFX Application Thread] INFO  com.svalero.santidownloader.controller.DownloadController - Descarga  creada
+12:55:37.209 [JavaFX Application Thread] INFO  com.svalero.santidownloader.controller.DownloadController - Descarga  creada
+12:55:43.809 [JavaFX Application Thread] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga  detenida
+12:57:18.802 [JavaFX Application Thread] INFO  com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz creada
+12:57:31.883 [Thread-3] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz iniciada
+12:57:34.715 [JavaFX Application Thread] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz detenida
+12:57:34.717 [Thread-3] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz cancelada
+12:57:45.092 [Thread-4] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz iniciada
+12:57:46.192 [Thread-4] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz finalizada
+12:57:56.573 [Thread-5] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz iniciada
+12:57:57.422 [Thread-5] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz finalizada
+12:58:09.294 [Thread-6] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz iniciada
+12:58:09.922 [JavaFX Application Thread] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz detenida
+12:58:09.923 [Thread-6] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz cancelada
+12:58:12.256 [JavaFX Application Thread] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz detenida
+12:58:13.096 [JavaFX Application Thread] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz detenida
+12:58:20.752 [JavaFX Application Thread] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz detenida
+13:00:45.396 [JavaFX Application Thread] INFO  com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz creada
+13:00:55.993 [Thread-3] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz iniciada
+13:00:58.396 [Thread-3] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.16.xz finalizada
+13:21:16.570 [JavaFX Application Thread] INFO  com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.16.tar.xz creada
+13:21:21.702 [JavaFX Application Thread] INFO  com.svalero.santidownloader.controller.DownloadController - Descarga https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.16.tar.xz creada

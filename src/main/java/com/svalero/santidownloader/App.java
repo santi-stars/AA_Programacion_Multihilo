@@ -1,5 +1,6 @@
 package com.svalero.santidownloader;
 
+import com.svalero.santidownloader.controller.AppController;
 import com.svalero.santidownloader.util.R;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
