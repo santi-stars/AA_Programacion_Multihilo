@@ -7,12 +7,33 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="527.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="527.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <content>
       <VBox fx:id="panel" prefHeight="488.0" prefWidth="598.0">
          <children>
-            <TextField fx:id="tfUrl" />
-            <Button fx:id="btDownload" mnemonicParsing="false" onAction="#launchDownload" text="Descargar" />
+            <TextField fx:id="tfUrl" promptText="Pega aquí la URL">
+               <VBox.margin>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </VBox.margin></TextField>
+            <TextField fx:id="tfUrl1" maxWidth="-Infinity" prefHeight="25.0" promptText="Nº máximo de descargas">
+               <VBox.margin>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </VBox.margin>
+            </TextField>
+            <Button fx:id="btDownload" mnemonicParsing="false" onAction="#launchDownload" text="Descargar">
+               <VBox.margin>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </VBox.margin></Button>
+            <Button fx:id="btStopAllDownloads" mnemonicParsing="false" onAction="#stopAllDownloads" text="Cancelar todo">
+               <VBox.margin>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btShowLog" mnemonicParsing="false" onAction="#viewLog" text="Ver LOG">
+               <VBox.margin>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </VBox.margin>
+            </Button>
             <TabPane fx:id="tpDownloads" prefHeight="313.0" prefWidth="578.0" tabClosingPolicy="UNAVAILABLE" />
          </children>
          <padding>

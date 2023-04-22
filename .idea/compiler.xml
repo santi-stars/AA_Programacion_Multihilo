@@ -17,8 +17,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="multihilo" />
-        <module name="multidescarga" />
         <module name="PSP-AA" />
+        <module name="santidownloader" />
       </profile>
     </annotationProcessing>
   </component>

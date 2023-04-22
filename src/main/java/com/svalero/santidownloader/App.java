@@ -1,5 +1,6 @@
 package com.svalero.santidownloader;
 
+import com.svalero.santidownloader.controller.AppController;
 import com.svalero.santidownloader.util.R;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +24,7 @@ public class App extends Application {
 
         Scene scene = new Scene(vbox);
         stage.setScene(scene);
+        stage.setTitle("Santi Downloader");
         stage.show();
     }
 
