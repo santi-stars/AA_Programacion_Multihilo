@@ -120,3 +120,23 @@
 11:29:41.974 [Thread-3] TRACE com.svalero.santidownloader.task.DownloadTask - Descarga https://proof.ovh.net/files/1Gb.dat cancelada
 11:29:42.004 [JavaFX Application Thread] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://proof.ovh.net/files/1Gb.dat detenida
 11:29:42.929 [JavaFX Application Thread] INFO  com.svalero.santidownloader.controller.DownloadController - Archivo https://proof.ovh.net/files/1Gb.dat borrado
+14:28:19.060 [JavaFX Application Thread] INFO  com.svalero.santidownloader.controller.DownloadController - Descarga https://proof.ovh.net/files/1Gb.dat creada
+14:28:20.590 [Thread-3] TRACE com.svalero.santidownloader.task.DownloadTask - Descarga https://proof.ovh.net/files/1Gb.dat iniciada
+14:28:36.973 [Thread-3] TRACE com.svalero.santidownloader.task.DownloadTask - Descarga https://proof.ovh.net/files/1Gb.dat cancelada
+14:28:37.087 [JavaFX Application Thread] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://proof.ovh.net/files/1Gb.dat detenida
+14:28:38.388 [JavaFX Application Thread] INFO  com.svalero.santidownloader.controller.DownloadController - Archivo https://proof.ovh.net/files/1Gb.dat borrado
+14:32:21.655 [JavaFX Application Thread] INFO  com.svalero.santidownloader.controller.DownloadController - Descarga https://proof.ovh.net/files/1Gb.dat creada
+14:32:23.113 [Thread-3] TRACE com.svalero.santidownloader.task.DownloadTask - Descarga https://proof.ovh.net/files/1Gb.dat iniciada
+14:32:33.511 [Thread-3] TRACE com.svalero.santidownloader.task.DownloadTask - Descarga https://proof.ovh.net/files/1Gb.dat cancelada
+14:32:33.641 [JavaFX Application Thread] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://proof.ovh.net/files/1Gb.dat detenida
+14:32:35.675 [JavaFX Application Thread] INFO  com.svalero.santidownloader.controller.DownloadController - Archivo https://proof.ovh.net/files/1Gb.dat borrado
+14:33:27.375 [JavaFX Application Thread] INFO  com.svalero.santidownloader.controller.DownloadController - Descarga https://proof.ovh.net/files/1Gb.dat creada
+14:33:39.474 [Thread-3] TRACE com.svalero.santidownloader.task.DownloadTask - Descarga https://proof.ovh.net/files/1Gb.dat iniciada
+14:33:58.789 [Thread-3] TRACE com.svalero.santidownloader.task.DownloadTask - Descarga https://proof.ovh.net/files/1Gb.dat cancelada
+14:33:58.934 [JavaFX Application Thread] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://proof.ovh.net/files/1Gb.dat detenida
+14:34:00.485 [JavaFX Application Thread] INFO  com.svalero.santidownloader.controller.DownloadController - Archivo https://proof.ovh.net/files/1Gb.dat borrado
+14:34:39.280 [JavaFX Application Thread] INFO  com.svalero.santidownloader.controller.DownloadController - Descarga https://proof.ovh.net/files/1Gb.dat creada
+14:34:42.548 [Thread-3] TRACE com.svalero.santidownloader.task.DownloadTask - Descarga https://proof.ovh.net/files/1Gb.dat iniciada
+14:35:40.775 [Thread-3] TRACE com.svalero.santidownloader.task.DownloadTask - Descarga https://proof.ovh.net/files/1Gb.dat cancelada
+14:35:40.942 [JavaFX Application Thread] TRACE com.svalero.santidownloader.controller.DownloadController - Descarga https://proof.ovh.net/files/1Gb.dat detenida
+14:35:42.712 [JavaFX Application Thread] INFO  com.svalero.santidownloader.controller.DownloadController - Archivo https://proof.ovh.net/files/1Gb.dat borrado

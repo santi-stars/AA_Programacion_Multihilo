@@ -56,9 +56,11 @@ public class DownloadTask extends Task<Integer> {
 
             // Mide los Megabytes por cada segundo
             if (Math.round(watch.getTime()) == 0) {
-                updateMessage(Math.round(downloadProgress * 100) + " %\t\t\t\t" + " 0 Mb/sec.");
+                updateMessage(Math.round(downloadProgress * 100) + " %\t\t\t" + " 0 Mb/sec.");
             } else {
-                updateMessage(Math.round(downloadProgress * 100) + " %\t\t\t\t" + Math.round((totalRead / 1048.576) / (watch.getTime())) + " Mb/sec.");
+                updateMessage(Math.round(downloadProgress * 100) + " %\t\t\t"
+                        + Math.round(downloadProgress * megaSize) + " de " + Math.round(megaSize) + " Mb\t\t\t"
+                        + Math.round((totalRead / 1048.576) / (watch.getTime())) + " Mb/sec.");
             }
 
             fileOutputStream.write(dataBuffer, 0, bytesRead);
