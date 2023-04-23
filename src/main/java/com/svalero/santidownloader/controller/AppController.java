@@ -74,9 +74,8 @@ public class AppController {
             // Creamos un nuevo archivo con la ruta establecida o la configurada por nosotros,
             // más "timestamp" delante como nombre de archivo para hacer único cada nombre de descarga
             File newFile = new File(file.toString().concat("\\" + timestamp + "_" + filename));
-            System.out.println(newFile);
-            // Recorta el nombre con mas de 15 caracteres con "..."
-            if (filename.length() > 15)
+
+            if (filename.length() > 15) // Recorta el nombre con mas de 15 caracteres con "..."
                 filename = (filename.substring(0, 15) + "...");
 
             FXMLLoader loader = new FXMLLoader();   // Crea un cargador
@@ -89,7 +88,6 @@ public class AppController {
             tpDownloads.getTabs().add(new Tab(filename, downloadBox));
             // Añade la descarga de tipo "downloadController" al Map "allDownloads"
             allDownloads.put(newFile.toString(), downloadController);
-            System.out.println(allDownloads.values());
 
         } catch (IOException ioe) {
             ioe.printStackTrace();

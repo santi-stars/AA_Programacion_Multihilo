@@ -119,9 +119,8 @@ public class DownloadController implements Initializable {
             alert.showAndWait();
 
             ButtonType result = alert.getResult();
-            if (result == ButtonType.OK) {
+            if (result == ButtonType.OK)
                 delete();
-            }
         }
 
     }
@@ -142,16 +141,12 @@ public class DownloadController implements Initializable {
      * Recoge del TextVieW "setDeelayTime" los segundos de espera introducidos por el usuario,
      * y los pasa a entero "int"
      *
-     * @return int Devuelve un número de segundo
+     * @return int Devuelve un número de segundos
      */
     private int setTimeDownload() {
 
-        if (setDeelayTime.getText().equals("")) {
-            return 0;
-        } else {
-            int setDeelayTime = Integer.parseInt(this.setDeelayTime.getText());
-            return setDeelayTime;
-        }
+        if (setDeelayTime.getText().equals("")) return 0;
+        else return Integer.parseInt(this.setDeelayTime.getText());
 
     }
 
