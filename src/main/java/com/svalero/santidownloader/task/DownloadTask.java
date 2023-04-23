@@ -24,6 +24,12 @@ public class DownloadTask extends Task<Integer> {
         this.file = file;
     }
 
+    /**
+     * Guarda la descarga en la ruta especificada y actualiza la información de la "progressBar"
+     *
+     * @return
+     * @throws Exception
+     */
     @Override
     protected Integer call() throws Exception {
         logger.trace("Descarga " + url.toString() + " iniciada");
@@ -42,6 +48,7 @@ public class DownloadTask extends Task<Integer> {
         StopWatch watch = new StopWatch();  // Instancia un reloj
         watch.start();                      // Inicia el reloj
 
+        // Bucle que descarga en bloques de 1024 bytes y actualiza la información de porcentaje y Mb/seg.
         while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
 
             downloadProgress = ((double) totalRead / fileSize);
@@ -58,6 +65,7 @@ public class DownloadTask extends Task<Integer> {
             totalRead += bytesRead;
 
             if (isCancelled()) {
+                fileOutputStream.close();
                 logger.trace("Descarga " + url.toString() + " cancelada");
                 return null;
             }
@@ -65,8 +73,9 @@ public class DownloadTask extends Task<Integer> {
 
         updateProgress(1, 1);
         updateMessage("100 %");
-
         logger.trace("Descarga " + url.toString() + " finalizada");
+
         return null;
     }
+
 }

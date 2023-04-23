@@ -7,25 +7,36 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="218.0" prefWidth="364.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label fx:id="lbNombre" prefHeight="17.0" prefWidth="311.0" text="Descarga" />
-      <TextField fx:id="tfUrl">
-         <VBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </VBox.margin>
-      </TextField>
-      <HBox prefHeight="79.0" prefWidth="154.0">
-         <children>
-            <Button fx:id="btStart" mnemonicParsing="false" onAction="#start" text="Iniciar" />
-            <Button fx:id="btStop" mnemonicParsing="false" onAction="#stop" text="Parar" />
-         </children>
-      </HBox>
-      <ProgressBar fx:id="pbProgress" prefHeight="40.0" prefWidth="324.0" progress="0.0" />
-      <Label fx:id="lbStatus" prefHeight="17.0" prefWidth="325.0" />
-   </children>
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
+    <children>
+        <Label fx:id="lbNombre" prefHeight="17.0" prefWidth="311.0" text="Descarga" />
+        <TextField fx:id="tfUrl" prefHeight="25.0" prefWidth="320.0">
+            <VBox.margin>
+                <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+            </VBox.margin>
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </TextField>
+        <HBox prefHeight="64.0" prefWidth="311.0">
+            <children>
+                <Button fx:id="btStart" mnemonicParsing="false" onAction="#start" text="Iniciar" />
+                <TextField fx:id="setDeelayTime" alignment="CENTER" prefHeight="27.0" prefWidth="219.0" promptText="Introduce aquí los segundo de espera" />
+                <Button fx:id="btStop" mnemonicParsing="false" onAction="#stop" prefHeight="25.0" prefWidth="45.0" text="Parar" />
+            </children>
+            <VBox.margin>
+                <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+            </VBox.margin>
+        </HBox>
+        <ProgressBar fx:id="pbProgress" prefHeight="30.0" prefWidth="320.0" progress="0.0">
+            <VBox.margin>
+                <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+            </VBox.margin></ProgressBar>
+        <Label fx:id="lbStatus" prefHeight="17.0" prefWidth="325.0" />
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
 </VBox>

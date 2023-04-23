@@ -1,127 +1,220 @@
 package com.svalero.santidownloader.controller;
 
 import com.svalero.santidownloader.util.R;
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
+import java.util.Scanner;
 
 
 public class AppController {
 
     public TextField tfUrl;
     public Button btDownload;
+    public Button btCancel;
+    public Button btRegister;
     public TabPane tpDownloads;
-    public static ExecutorService executor;
+    public TextArea txaRegister;
+    public ScrollPane sp;
 
-    private Map<String, DownloadController> allDownloads;
-
-    @FXML
-    public File defaultFile = new File("C:/Users/Santi/Downloads"); // Establezco una ruta por defecto
-    public File file = defaultFile; // La asigno a la ruta donde se descargará si no se cambia despues
-    private ScrollPane sp;
-
-    private static final Logger logger = LogManager.getLogger(AppController.class);
+    protected File file;
+    protected Map<String, DownloadController> allDownloads;
+    // ***MODIFICAR***          ruta de descarga por defecto                 ***MODIFICAR***
+    private final File DEFAULT_FILE = new File("C:\\Users\\santi\\Desktop");
+    // ***MODIFICAR***          ruta del archivo LOG por defecto             ***MODIFICAR***
+    private final String LOG_FILE_ROUTE = "C:\\Users\\santi\\IdeaProjects\\PSP-AA\\santidownloader.log";
 
     public AppController() {
+        file = DEFAULT_FILE;
         allDownloads = new HashMap<>();
     }
 
-    @FXML
-    private void changeDirectory(ActionEvent event) {
-        DirectoryChooser dirChooser = new DirectoryChooser();
-        dirChooser.setInitialDirectory(defaultFile);
-        Stage stage = (Stage) sp.getScene().getWindow();
-        file = dirChooser.showDialog(stage);
-        if (file == null) {
-            file = defaultFile;
-        }
-    }
-
+    /**
+     * Llama al método launch() para lanzar la descarga con la URL del TextFiel
+     *
+     * @param event
+     */
     @FXML
     public void launchDownload(ActionEvent event) {
-        String urlText = tfUrl.getText();
-        tfUrl.clear();
-        tfUrl.requestFocus();
 
-        launchDownload(urlText, file);
+        String urlText = tfUrl.getText();   // Coje la URL del textField
+        tfUrl.clear();                      // Limpia el textField
+        tfUrl.requestFocus();               // Reclama el foco en el textField
+
+        launch(urlText, file);            // Ejecuta nuestro método launch que lanza la descarga
+
     }
 
-    private void launchDownload(String url, File file) {
+    /**
+     * Crea una pestaña nueva con la descarga y la renombra recortando el link
+     *
+     * @param url String con la URL de la descarga
+     */
+    private void launch(String url, File file) {
+
         try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(R.getUI("download.fxml"));
 
-            DownloadController downloadController = new DownloadController(url, file, executor);
-            loader.setController(downloadController);
-            VBox downloadBox = loader.load();
-            //BorderPane bPane = loader.load();
-
+            String timestamp = ZonedDateTime.now()
+                    .format(DateTimeFormatter.ofPattern("dd-MM-yyy_hh-mm-ss"));
+            // Crea un nombre del archivo a partir de la URL seleccionando el texto despues del último "/"
             String filename = url.substring(url.lastIndexOf("/") + 1);
-            Tab tab = new Tab(filename, downloadBox);
-            tab.setOnClosed(event -> downloadController.close());
-            tpDownloads.getTabs().add(tab);
-            allDownloads.put(url, downloadController);
+            // Creamos un nuevo archivo con la ruta establecida o la configurada por nosotros,
+            // más "timestamp" delante como nombre de archivo para hacer único cada nombre de descarga
+            File newFile = new File(file.toString().concat("\\" + timestamp + "_" + filename));
+            System.out.println(newFile);
+            // Recorta el nombre con mas de 15 caracteres con "..."
+            if (filename.length() > 15)
+                filename = (filename.substring(0, 15) + "...");
+
+            FXMLLoader loader = new FXMLLoader();   // Crea un cargador
+            loader.setLocation(R.getUI("download.fxml"));   // Asigna la interfaz de las pestañas
+
+            DownloadController downloadController = new DownloadController(url, newFile);
+            loader.setController(downloadController);   // Añade al cargador
+            VBox downloadBox = loader.load();   // Lo carga en un VBox
+            // Crea una tab con el nombre anterior y con el VBox que hemos creado
+            tpDownloads.getTabs().add(new Tab(filename, downloadBox));
+            // Añade la descarga de tipo "downloadController" al Map "allDownloads"
+            allDownloads.put(newFile.toString(), downloadController);
+            System.out.println(allDownloads.values());
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
+
     }
 
+    /**
+     * Para, todas las descargas activas y cierra todas las pestañas
+     */
     @FXML
     public void stopAllDownloads() {
+
         for (DownloadController downloadController : allDownloads.values())
             downloadController.stop();
 
+        allDownloads.clear();
         tpDownloads.getTabs().clear();
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Se han finalizado todas las descargas!");
-        alert.show();
-        logger.trace("Todas las descargas detenidas");
     }
 
-    @FXML
-    public void viewLog(ActionEvent event) throws IOException {
-        Desktop desktop = Desktop.getDesktop();
-        File log = new File("C:/Users/santi/IdeaProjects/PSP-AA/santidownloader.log");
-        desktop.open(log);
-    }
-
+    /**
+     * Abre una ventana para elegir la ubicación del archivo DLC de descarga a leer
+     * y llama al método launch() por cada link de descarga para lanzar la descarga
+     */
     @FXML
     public void readDLC() {
-        // Todo dento de un try catch
 
+        try {   // Abre una ventana para elegir la ubicación del archivo DLC de descarga
 
+            FileChooser fileChooser = new FileChooser();
+            File dlcFile = fileChooser.showOpenDialog(tfUrl.getScene().getWindow());
+            if (dlcFile == null)
+                return;
+            Scanner reader = new Scanner(dlcFile);
+            String data, oldData = "";
 
-        // Hay que pedir el fichero en la interfaz FileChooser
-        /*
-        FileChooser fileChooser = new FileChooser();
-        File file = fileChooser.showOpenDialog(tfUrl.getScene().getWindow());
-        if (file == null)
-            return;
-         */
+            while (reader.hasNextLine()) {  // Mientras haya siguiente linea  llama al método launch para lanzar cada descarga
 
-        // Leo el fichero y cargo cada linea en un list
+                data = reader.nextLine();
+                if (data.equals(oldData))   // Pausa la lectura si los enlaces son iguales para evitar nombres iguales
+                    Thread.sleep(666);
 
-        // Fille.read devuelve una lista de Strings y en cada linea es una linea
-        // con una linea leemos el fichero, con 2 lineas hacemos un foreach que llama al launchDownloader
+                oldData = data;
+                launch(data, file);
+            }
 
-        // Para cada linea; llamar al método launchDownload
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (InterruptedException ie) {
+            ie.printStackTrace();
+        }
+
     }
+
+    /**
+     * Lee el archivo del registro de descargas y lo devuelve como String
+     *
+     * @return String con los LOG's de las descargas
+     */
+    private String readFile() {
+
+        String texto = "";
+
+        try {
+            BufferedReader bf = new BufferedReader(new FileReader(LOG_FILE_ROUTE));
+            String temp = "";
+            String bfRead;
+
+            while ((bfRead = bf.readLine()) != null) {
+                temp = temp + bfRead;
+            }
+            texto = temp;
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return texto;
+    }
+
+    /**
+     * Abre un TextArea con Scroll y muestra los LOG con las descargas
+     */
+    @FXML
+    public void viewLog() {
+
+        try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(R.getUI("registro.fxml"));
+            txaRegister = loader.load();
+
+            Scene scene = new Scene(txaRegister);
+            stage.setScene(scene);
+            stage.setTitle("Registro de descargas");
+            stage.show();
+            // Añado un listener para poner una barra de Scroll cuando haya cambios en el texto
+            txaRegister.textProperty().addListener((ChangeListener<Object>) (observable, oldValue, newValue)
+                    -> txaRegister.setScrollTop(Double.MIN_VALUE));
+            txaRegister.setEditable(false); // Evita que se modifique el texto
+            txaRegister.setWrapText(true);  // TRUE envuelve el texto que pasamos en setText, si no, lo muestra en una linea
+            txaRegister.setText(readFile());// Añade al textArea el texto del archivo del LOG a través del método: readFile()
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * Elije la ruta de descarga
+     */
+    @FXML
+    public void chooseDownloadPath(ActionEvent event) {
+
+        DirectoryChooser dirChooser = new DirectoryChooser();
+        dirChooser.setInitialDirectory(DEFAULT_FILE);
+        Stage stage = (Stage) sp.getScene().getWindow();
+        file = dirChooser.showDialog(stage);
+
+        if (file == null)
+            file = DEFAULT_FILE;
+
+    }
+
 }
