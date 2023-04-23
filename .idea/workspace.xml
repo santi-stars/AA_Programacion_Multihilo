@@ -10,28 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fba61a4d-a709-4705-9c84-70bef7d30563" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dlc.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/santidownloader.log" beforeDir="false" afterPath="$PROJECT_DIR$/santidownloader.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/svalero/santidownloader/controller/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svalero/santidownloader/controller/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/svalero/santidownloader/controller/DownloadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svalero/santidownloader/controller/DownloadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/svalero/santidownloader/task/DownloadTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svalero/santidownloader/task/DownloadTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log_santidownloader.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ui/download.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ui/download.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ui/registro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ui/registro.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ui/santidownloader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ui/santidownloader.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/svalero/santidownloader/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/svalero/santidownloader/AppController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/svalero/santidownloader/DownloadController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/svalero/santidownloader/DownloadTask.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/svalero/santidownloader/util/R.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/log_santidownloader.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ui/download.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ui/santidownloader.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +112,7 @@
       <workItem from="1662047845122" duration="6817000" />
       <workItem from="1682108056010" duration="2184000" />
       <workItem from="1682112397683" duration="588000" />
-      <workItem from="1682144000581" duration="16269000" />
+      <workItem from="1682144000581" duration="17374000" />
     </task>
     <servers />
   </component>
