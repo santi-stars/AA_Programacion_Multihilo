@@ -33,9 +33,9 @@ public class AppController {
     protected File file;
     protected Map<String, DownloadController> allDownloads;
     // ***MODIFICAR***          ruta de descarga por defecto                 ***MODIFICAR***
-    private final File DEFAULT_FILE = new File("C:\\Users\\santi\\Desktop");
+    private final File DEFAULT_FILE = new File(System.getProperty("user.home"));
     // ***MODIFICAR***          ruta del archivo LOG por defecto             ***MODIFICAR***
-    private final String LOG_FILE_ROUTE = "C:\\Users\\santi\\IdeaProjects\\PSP-AA\\santidownloader.log";
+    private final String LOG_FILE_ROUTE = System.getProperty("user.dir") + "\\santidownloader.log";
 
     public AppController() {
         file = DEFAULT_FILE;
@@ -156,13 +156,10 @@ public class AppController {
 
         try {
             BufferedReader bf = new BufferedReader(new FileReader(LOG_FILE_ROUTE));
-            String temp = "";
             String bfRead;
 
-            while ((bfRead = bf.readLine()) != null) {
-                temp = temp + bfRead;
-            }
-            texto = temp;
+            while ((bfRead = bf.readLine()) != null)
+                texto += "---" + bfRead + "\n";
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

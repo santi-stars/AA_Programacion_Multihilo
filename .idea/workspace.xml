@@ -12,7 +12,7 @@
     <list default="true" id="fba61a4d-a709-4705-9c84-70bef7d30563" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/santidownloader.log" beforeDir="false" afterPath="$PROJECT_DIR$/santidownloader.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/svalero/santidownloader/task/DownloadTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svalero/santidownloader/task/DownloadTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/svalero/santidownloader/controller/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/svalero/santidownloader/controller/AppController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +119,7 @@
       <workItem from="1662047845122" duration="6817000" />
       <workItem from="1682108056010" duration="2184000" />
       <workItem from="1682112397683" duration="588000" />
-      <workItem from="1682144000581" duration="21611000" />
+      <workItem from="1682144000581" duration="23653000" />
     </task>
     <servers />
   </component>
