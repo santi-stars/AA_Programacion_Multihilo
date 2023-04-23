@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 
 
-<Label fx:id="lbRegister" alignment="TOP_LEFT" contentDisplay="TOP" lineSpacing="1.0" prefHeight="437.0" prefWidth="457.0" text="Label" wrapText="true" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" />
+<TextArea fx:id="txaRegister" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0"
+          prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"/>
